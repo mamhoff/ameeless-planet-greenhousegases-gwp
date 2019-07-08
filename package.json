@@ -10,6 +10,7 @@
   "author": "Martin Meyerhoff <mamhoff@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "fs": "0.0.1-security",
     "jest": "^24.8.0",
     "neat-csv": "^5.1.0"
   },

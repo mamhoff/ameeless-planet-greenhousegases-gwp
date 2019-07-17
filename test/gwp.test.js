@@ -1,7 +1,7 @@
 const gwp = require('../src/gwp')
 
 test('gets Sulfur', () => {
-  expect(gwp.getData('SF6')).toEqual(
+  expect(gwp.getGas('SF6')).toEqual(
     {
       "GWP": 23900.000,
       "formula": "SF6",
@@ -16,4 +16,10 @@ test('gets Sulfur', () => {
       "units": ""
     }
   )
-});
+})
+
+test('GWP is a method', () => {
+  sulfur = gwp.getGas('SF6')
+  expect(sulfur.GWP).toEqual(23900);
+})
+;

@@ -1,14 +1,13 @@
-const fs = require('fs').promises;
-const neatCsv = require('neat-csv');
-const readData = async (dataFile) => {
-  try {
-    const dataFile = await fs.open(dataFile, 'utf-8');
-    const data = await dataFile.readFile();
-    console.log(data);
-    await dataFile.close();
-    return data();
-  } catch (e) {
-    throw new Error(`Failed to load data file at ${dataFile}`);
+const gwpData = require('../data/data.json');
+
+const getData = function(gas) {
+  const match = gwpData.find(function (entry) {
+    return (entry.gas === gas)
+  });
+  if (match === undefined) {
+    throw new Error('Gas not found!')
   }
+  return match;
 }
-readData('../data/data.csv');
+
+module.exports.getData = getData;
